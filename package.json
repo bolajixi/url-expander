@@ -1,0 +1,23 @@
+{
+  "name": "url-expander",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bolajixi/url-expander.git"
+  },
+  "author": "Mobolaji Olawale",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bolajixi/url-expander/issues"
+  },
+  "homepage": "https://github.com/bolajixi/url-expander#readme",
+  "dependencies": {
+    "express": "^4.17.2",
+    "request": "^2.88.2"
+  }
+}
