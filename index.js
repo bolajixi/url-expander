@@ -11,6 +11,11 @@ app.get("/", (req, res) => {
 
 app.get("/expand", (req, res) => {
 	const shortUrl = req.query.shortUrl;
+
+	if (!shortUrl.startsWith("http")) {
+		shortUrl = `https://${shortUrl}`;
+	}
+
 	request(
 		{
 			url: shortUrl,
