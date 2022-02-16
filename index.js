@@ -1,6 +1,8 @@
 const express = require("express");
 const app = express();
 
+const request = require("request");
+
 app.use(express.static("public"));
 
 app.get("/", (req, res) => {
@@ -9,7 +11,20 @@ app.get("/", (req, res) => {
 
 app.get("/expand", (req, res) => {
 	const shortUrl = req.query.shortUrl;
-	res.send("Hellow world");
+	request(
+		{
+			url: shortUrl,
+			method: "HEAD",
+			followAllRedirects: true,
+		},
+		(err, response, body) => {
+			if (err) {
+				res.sendStatus(500);
+			} else {
+				res.send(response.request.uri.href);
+			}
+		}
+	);
 });
 
 const port = process.env.PORT || 3000;
